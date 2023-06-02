@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import s from '../Feedback.module.css';
 
-const Statistics = ({ good, neutral, bad, total, percentage}) => {
+const Statistics = ({good, neutral, bad, total, percentage}) => {
   return (
     <ul className={s.FeedbackList}>
       <li>

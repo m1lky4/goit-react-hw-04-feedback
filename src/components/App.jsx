@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Statistics from './statistics/Statistics';
 import FeedbackOptions from './feedbackOptions/FeedbackOptions';
 import Section from './section/Section';
@@ -21,21 +21,27 @@ export const App = () => {
     } else if (type === 'bad') {
       setBad((prevBad) => prevBad + 1);
     }
+
     setHasFeedback(true);
   };
-   useEffect(() => {
+
+  const countTotalFeedback = useCallback(() => {
+    setTotal(good + neutral + bad);
+  }, [good, neutral, bad]);
+
+  const countPositiveFeedbackPercentage = useCallback(() => {
+    const feedbackTotal = good + neutral + bad;
+    if (feedbackTotal > 0) {
+      setPercentage(Math.round((good / feedbackTotal) * 100));
+    } else {
+      setPercentage(0);
+    }
+  }, [good, neutral, bad]);
+
+  useEffect(() => {
     countTotalFeedback();
     countPositiveFeedbackPercentage();
-  }, [good, neutral, bad,total,countTotalFeedback,countPositiveFeedbackPercentage]);
-
-
-  const countTotalFeedback = () => {
-     setTotal(good + bad + neutral);
-  };
-
-  const countPositiveFeedbackPercentage = () => {
-   setPercentage(Math.round((good / total) * 100));
-  };
+  }, [countTotalFeedback, countPositiveFeedbackPercentage]);
 
   return (
     <div

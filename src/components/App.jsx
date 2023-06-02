@@ -26,7 +26,7 @@ export const App = () => {
    useEffect(() => {
     countTotalFeedback();
     countPositiveFeedbackPercentage();
-  }, [good, neutral, bad,total]);
+  }, [good, neutral, bad,total,countTotalFeedback,countPositiveFeedbackPercentage]);
 
 
   const countTotalFeedback = () => {

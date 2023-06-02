@@ -1,0 +1,28 @@
+.FeedbackWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.FeedbackList {
+  list-style: none;
+  padding: 0;
+}
+.FeedbackBtn {
+  margin-right: 25px;
+  width: 100px;
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 20px;
+  transition: all 250ms ease;
+  cursor: pointer;
+}
+
+.FeedbackBtn:hover {
+  background-color: lightgrey;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.FeedbackSpan {
+  font-size: 29px;
+}
